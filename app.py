@@ -12,7 +12,10 @@ model = EncoderDecoderModel.from_encoder_decoder_pretrained(
 def flip(content):
     input_ids = torch.tensor(tokenizer.encode(content)).unsqueeze(0)
     generated = model.generate(input_ids, decoder_start_token_id=model.config.decoder.pad_token_id)
-    return tokenizer.decode(generated.tolist()[0])
+    op = tokenizer.decode(generated.tolist()[0][1:])
+    if '[SEP]' in op:
+        return op[:op.index('[SEP]')]
+    return op
 
 iface = gr.Interface(fn=flip,
 	inputs=gr.inputs.Textbox(label="Original Spanish text"),
