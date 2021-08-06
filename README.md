@@ -1,8 +1,8 @@
 ---
-title: Spanish Flip
-emoji: 🇲🇽
-colorFrom: blue
-colorTo: pink
+title: Arabic Flip
+emoji: 🇲🇦
+colorFrom: red
+colorTo: green
 sdk: gradio
 app_file: app.py
 pinned: false
