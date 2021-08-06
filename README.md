@@ -8,26 +8,22 @@ app_file: app.py
 pinned: false
 ---
 
-# Configuration
+https://huggingface.co/spaces/monsoon-nlp/spanish-flip
 
-`title`: _string_  
-Display title for the Space
+Designed for HuggingFace Spaces + Gradio
 
-`emoji`: _string_  
-Space emoji (emoji-only character allowed)
+Flips masculine and feminine words within a Spanish sentence, when appropriate.
 
-`colorFrom`: _string_  
-Color for Thumbnail gradient (red, yellow, green, blue, indigo, purple, pink, gray)
+How it works: this loads a seq2seq model from these two HuggingFace models:
+- https://huggingface.co/monsoon-nlp/es-seq2seq-gender-encoder
+- https://huggingface.co/monsoon-nlp/es-seq2seq-gender-decoder
 
-`colorTo`: _string_  
-Color for Thumbnail gradient (red, yellow, green, blue, indigo, purple, pink, gray)
+Both were based on BETO ( https://huggingface.co/dccuchile/beto ) and then
+trained on sentences which I flipped more programmatically with spaCy.
 
-`sdk`: _string_  
-Can be either `gradio` or `streamlit`
+Applications:
+- gender bias in finetuned models
+- data augmentation for more representation
 
-`app_file`: _string_  
-Path to your main application file (which contains either `gradio` or `streamlit` Python code).  
-Path is relative to the root of the repository.
-
-`pinned`: _boolean_  
-Whether the Space stays on top of your list.
+For help setting up data augmentation (adding or replacing sentences within
+a dataset) try https://github.com/MonsoonNLP/seq2seq-for-data-augmentation
