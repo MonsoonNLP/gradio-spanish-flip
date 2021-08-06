@@ -1,6 +1,6 @@
 ---
 title: Spanish Flip
-emoji: 😻
+emoji: 🇲🇽
 colorFrom: blue
 colorTo: pink
 sdk: gradio
